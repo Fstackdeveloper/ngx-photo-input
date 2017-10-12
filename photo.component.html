@@ -1,0 +1,44 @@
+	
+						
+						<div class="photo-upload">
+						<div class="photo-upload-row">
+						<div class="photo-upload-photo">
+						  	<img  
+						  	[(src)]="PhotoSRC" 
+						  	class="m--img-rounded m--marginless m--img-centered" 
+						  	width="200" 
+						  	height="200" 
+						  	(click) = "photo.click()" 
+						  	role="button"
+						  	>
+						  	
+						  	<div class="photo-upload-input">
+						   <input #photo  type="file" 
+						    class="ng-hide" 
+						    (change)="fileChange(photo)" 
+						   
+						    >
+						    
+						  
+						     </div>	
+						  			
+						 </div>
+						 </div>
+						 <div class="photo-upload-row">
+						 <div class="photo-upload-btn">
+						<a  class="btn btn-secondary mt-2" (click)="photo.click()" >
+							Browse
+						</a>
+						 </div>
+						 <div class="photo-upload-btn">
+					<a  class="btn btn-secondary mt-2" (click)="fileremove()" >
+							Remove
+						</a>
+						 
+						 </div>
+						 </div>
+						 </div>
+						
+						 		
+   					
+   				
