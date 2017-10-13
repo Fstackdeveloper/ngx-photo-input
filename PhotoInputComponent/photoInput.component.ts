@@ -39,9 +39,7 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
   propagateChange:any = () => {};
   validateFn:any = () => {};
   @Input('photoValue') _photoValue = 0;
-  @Input() counterRangeMax;
-  @Input() counterRangeMin;
-  @Input() photoURL= "assets/forms/photo/media/img/nophoto.png";
+  @Input() photoURL;
   PhotoSRC :string;    
   
   get photoValue() {
@@ -106,16 +104,18 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
           }
       else
           {
+          photo.value = null;
           this.photoValue = null;
           this.PhotoSRC = this.photoURL;
           }
   }
   
   
-  fileremove()
+  fileremove(photo: any)
   {
       this.PhotoSRC = this.photoURL;
       this.validateFn = PhotoValidator(this.PhotoSRC);
+      photo.value = null;
       this.photoValue =   null;    
   }
 

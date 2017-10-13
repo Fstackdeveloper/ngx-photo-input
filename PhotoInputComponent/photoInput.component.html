@@ -1,5 +1,3 @@
-	
-						
 						<div class="photo-upload">
 						<div class="photo-upload-row">
 						<div class="photo-upload-photo photo"
@@ -8,31 +6,26 @@
 						 'nophoto': !PhotoSRC || PhotoSRC===null
 						 }"
 						 >
-	
-						  	
 						  	<div class="photo-upload-input">
 						   <input #photo  type="file" 
 						    class="ng-hide" 
 						    (change)="fileChange(photo)" 
-						   
-						    >
-						    
-						  
-						     </div>	
+						   >
+	
+					     </div>	
 						  			
 						 </div>
 						 </div>
 						 <div class="photo-upload-row">
 						 <div class="photo-upload-btn">
-						<a  class="btn btn-secondary mt-2" (click)="photo.click()" >
+						<button  class="btn-photo-input btn-photo-input-secondary photo-input-margin-top" (click)="photo.click()" >
 							Browse
-						</a>
+						</button>
 						 </div>
 						 <div class="photo-upload-btn">
-					<a  class="btn btn-secondary mt-2" (click)="fileremove()" >
-							Remove
-						</a>
-						 
+						<button class="btn-photo-input btn-photo-input-secondary photo-input-margin-top" (click)="fileremove(photo)" [disabled]="PhotoSRC === photoURL" >
+							Reset
+						</button>
 						 </div>
 						 </div>
 						 </div>
