@@ -1,11 +1,11 @@
 # ngx-photo-input
 Photo Input Component for Angular 4
 
-#How to Install
+# How to Install
 ```
 npm install ngx-photo-input@0.0.8
 ```
-#How does it appear?
+# How does it appear?
 
 ![alt text](https://user-images.githubusercontent.com/30666269/31550129-f7a7b40c-b038-11e7-8dd8-4dd9e116d0fe.png)
 
@@ -35,11 +35,11 @@ name = "userphoto" #userphoto="ngModel" [(ngModel)]="users.photo"></input-photo>
 photoURL: The url of default or current photo 
 
 
-#The files that are accepted 
+# The files that are accepted 
 gif, png, bmp, jpeg, jpg.
 
 
-#Example for  detection of error because of invalide File 
+# Example for  detection of error because of invalide File 
 
  ```
 
