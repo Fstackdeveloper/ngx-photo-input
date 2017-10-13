@@ -5,6 +5,9 @@ Photo Input Component for Angular 4
 ```
 npm install ngx-photo-input@0.0.8
 ```
+#How does it appear?
+![alt text](https://user-images.githubusercontent.com/30666269/31550129-f7a7b40c-b038-11e7-8dd8-4dd9e116d0fe.png)
+
 # How To Use
 In the Module Declare NGX Photo Input Component
 

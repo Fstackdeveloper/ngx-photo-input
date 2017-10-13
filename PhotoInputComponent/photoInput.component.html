@@ -2,7 +2,12 @@
 						
 						<div class="photo-upload">
 						<div class="photo-upload-row">
-						<div class="photo-upload-photo nophoto" [style.backgroundImage]="'url('+ PhotoSRC +')'" (click) = "photo.click()"  role="button">
+						<div class="photo-upload-photo photo"
+						 [style.backgroundImage]="'url('+ PhotoSRC +')'" (click) = "photo.click()"  
+						 [ngClass]="{
+						 'nophoto': !PhotoSRC || PhotoSRC===null
+						 }"
+						 >
 	
 						  	
 						  	<div class="photo-upload-input">
