@@ -28,7 +28,7 @@ export function PhotoValidator(photoURL) {
 @Component({
     selector: 'input-photo',
     templateUrl: './photo.component.html',
-    styleUrls: ['./photo.component.css'],
+    styleUrls: ['./photo.component.scss'],
   providers: [
     { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => PhotoComponent), multi: true },
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => PhotoComponent), multi: true }

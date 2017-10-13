@@ -2,15 +2,8 @@
 						
 						<div class="photo-upload">
 						<div class="photo-upload-row">
-						<div class="photo-upload-photo">
-						  	<img  
-						  	[(src)]="PhotoSRC" 
-						  	class="m--img-rounded m--marginless m--img-centered" 
-						  	width="200" 
-						  	height="200" 
-						  	(click) = "photo.click()" 
-						  	role="button"
-						  	>
+						<div class="photo-upload-photo nophoto" [style.backgroundImage]="'url('+ PhotoSRC +')'" (click) = "photo.click()"  role="button">
+	
 						  	
 						  	<div class="photo-upload-input">
 						   <input #photo  type="file" 
