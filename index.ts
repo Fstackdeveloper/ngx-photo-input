@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PhotoComponent } from "./PhotoComponent/photo.component";
+import { PhotoInputComponent } from "./PhotoInputComponent/photoInput.component";
 
 
 const MJ_Photo_COMPONENTS = [
-                            PhotoComponent,
+                            PhotoInputComponent,
                           ];
 
 
@@ -31,4 +31,4 @@ export class PhotoModule {
 
 }
 
-export {PhotoComponent};
+export {PhotoInputComponent};

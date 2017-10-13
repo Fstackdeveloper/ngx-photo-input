@@ -27,14 +27,14 @@ export function PhotoValidator(photoURL) {
 
 @Component({
     selector: 'input-photo',
-    templateUrl: './photo.component.html',
-    styleUrls: ['./photo.component.scss'],
+    templateUrl: './photoInput.component.html',
+    styleUrls: ['./photoInput.component.scss'],
   providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => PhotoComponent), multi: true },
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() => PhotoComponent), multi: true }
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => PhotoInputComponent), multi: true },
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => PhotoInputComponent), multi: true }
   ]
 })
-export class PhotoComponent implements ControlValueAccessor, OnChanges {
+export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
 
   propagateChange:any = () => {};
   validateFn:any = () => {};
