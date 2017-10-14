@@ -1,13 +1,19 @@
 import { Component, OnInit, forwardRef, Input, OnChanges, ElementRef, ViewChild } from '@angular/core';
-import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
+import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, AbstractControl } from '@angular/forms';
 import {photoInputOptions} from './photoInputOptions';
 
 
 export function PhotoValidator(photoURL) {
-    return (c: FormControl) => {
+    return (c: AbstractControl) => {
         
        // let v = c.value;
         let v = photoURL;
+        
+       //To Solve Problem of Submit Disabled if value null
+        if(!v)
+            {
+                c.setErrors(null);   
+            }
         
 
         var Extension = v.substring(
@@ -18,9 +24,9 @@ export function PhotoValidator(photoURL) {
               validatePhoto: true
                  };
 
-        return (Extension == "gif" || Extension == "png" || Extension == "bmp"
-        || Extension == "jpeg" || Extension == "jpg") ?  null : err;
- 
+      return  (Extension == "gif" || Extension == "png" || Extension == "bmp"
+        || Extension == "jpeg" || Extension == "jpg" || !v ) ?  null : err;
+
 
     }
   }
@@ -43,6 +49,7 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
   @Input() photoURL;
   @Input() options : photoInputOptions = {theme:{circlePhoto:null,background:null}};
   PhotoSRC :string; 
+  PhotoBackground:string;
   
 //To Get File Input Element in HTML
   @ViewChild('NgxPhotoFileInput') 
@@ -60,7 +67,10 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
   }
 
   ngOnChanges(inputs) {
+
           this.PhotoSRC = this.photoURL;
+          this.PhotoBackground = this.PhotoSRC ? 'url('+ this.PhotoSRC +')': 'none';
+  
           this.validateFn = PhotoValidator(this.PhotoSRC);
   }
 
@@ -78,10 +88,8 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
     let NullOptions : photoInputOptions = {theme:{circlePhoto:null,background:null}}
     this.options =  Object.assign(NullOptions , this.options);
 
-    
-
     this.PhotoSRC = this.photoURL;
-    
+    this.PhotoBackground = this.PhotoSRC ? 'url('+ this.PhotoSRC +')': 'none';
 
   }
 
@@ -123,12 +131,19 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
       var control = this;
             
       var myReader: FileReader = new FileReader();
-      myReader.onload = function(e:any) {control.PhotoSRC = e.target.result;};
+      myReader.onload = function(e:any) {
+          
+      control.PhotoSRC = e.target.result;
+      control.PhotoBackground = control.PhotoSRC ? 'url('+ control.PhotoSRC +')': 'none';
+      
+      };
       myReader.readAsDataURL(photo.files[0]);
           }
       else
           {
-          this.PhotoSRC = this.photoURL;
+                  this.PhotoSRC = this.photoURL;
+                  this.PhotoBackground = this.PhotoSRC ? 'url('+ this.PhotoSRC +')': 'none';
+          
           }
 
       }
@@ -137,9 +152,10 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
   
   fileremove(photo: any)
   {
+      photo.value = null;
       this.PhotoSRC = this.photoURL;
       this.validateFn = PhotoValidator(this.PhotoSRC);
-      photo.value = null;
+      this.PhotoBackground = this.PhotoSRC ? 'url('+ this.PhotoSRC +')': 'none';
       this.photoValue =   null;    
   }
 
