@@ -1,5 +1,6 @@
 import { Component, OnInit, forwardRef, Input, OnChanges, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
+import {photoInputOptions} from './photoInputOptions';
 
 
 export function PhotoValidator(photoURL) {
@@ -40,6 +41,7 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
   validateFn:any = () => {};
   @Input('photoValue') _photoValue = 0;
   @Input() photoURL;
+  @Input() options : photoInputOptions = {theme:{circlePhoto:null,background:null}};
   PhotoSRC :string; 
   
 //To Get File Input Element in HTML
@@ -71,6 +73,12 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
         this.NgxPhotoFileInput.nativeElement.value = null;
         this.validateFn = PhotoValidator(this.PhotoSRC);
     }
+    
+    //Fix Error if options = null because we need all options values in html 
+    let NullOptions : photoInputOptions = {theme:{circlePhoto:null,background:null}}
+    this.options =  Object.assign(NullOptions , this.options);
+
+    
 
     this.PhotoSRC = this.photoURL;
     

@@ -1,9 +1,10 @@
 						<div class="photo-upload">
 						<div class="photo-upload-row">
-						<div class="photo-upload-photo photo photo-circle"
+						<div class="photo-upload-photo photo"
 						 [style.backgroundImage]="'url('+ PhotoSRC +')'" (click) = "NgxPhotoFileInput.click()"  
 						 [ngClass]="{
-						 'nophoto': !PhotoSRC || PhotoSRC===null
+						 'userBackground': (!PhotoSRC || PhotoSRC===null) && options.theme.background === 'user',
+						 'photo-circle': options.theme.circlePhoto
 						 }"
 						 >
 						  	<div class="photo-upload-input">
