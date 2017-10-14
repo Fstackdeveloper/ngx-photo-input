@@ -120,8 +120,6 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
           }
       else
           {
-          photo.value = null;
-          this.photoValue = null;
           this.PhotoSRC = this.photoURL;
           }
 
