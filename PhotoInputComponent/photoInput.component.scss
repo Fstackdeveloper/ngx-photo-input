@@ -56,15 +56,24 @@
 .photo
 {
 	    background-image: url("images/nophoto.png");
-	    background-size: 200px 200px;
+	    background-size: cover;
    	    background-repeat: no-repeat;
 	    width: 200px;
 	    height: 200px;
 	    cursor:pointer;
+	    border: 1px solid transparent;
+  	    border-color: #adadad;
+      	-moz-border-radius: 10%; 
+ 	    -webkit-border-radius:  10%; 
+  	    border-radius: 10%; 
+}
+
+ .photo-circle{
 	    	-moz-border-radius: 50%; 
  	    -webkit-border-radius:  50%; 
   	    border-radius: 50%; 
-}
+  	   	 }
+
 
 
 .nophoto
