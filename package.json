@@ -5,6 +5,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Mohamed Jasim",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fstackdeveloper/ngx-photo-input"
+  },
+  "author": "Mohamed Jasim <info@fullstackdeveloper.org> (https://fullstackdeveloper.org)",
   "license": "MIT"
 }

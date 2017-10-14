@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, forwardRef, Input, OnChanges, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
 
 
@@ -40,7 +40,13 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
   validateFn:any = () => {};
   @Input('photoValue') _photoValue = 0;
   @Input() photoURL;
-  PhotoSRC :string;    
+  PhotoSRC :string; 
+  
+//To Get File Input Element in HTML
+  @ViewChild('NgxPhotoFileInput') 
+  private NgxPhotoFileInput: ElementRef;    
+
+  
   
   get photoValue() {
     return this._photoValue;
@@ -60,7 +66,14 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
     if (value) {
       this.photoValue = value;
     }
+    else
+    {
+        this.NgxPhotoFileInput.nativeElement.value = null;
+    }
+
     this.PhotoSRC = this.photoURL;
+    
+
   }
 
   registerOnChange(fn) {

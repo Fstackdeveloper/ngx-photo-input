@@ -1,33 +1,49 @@
 						<div class="photo-upload">
 						<div class="photo-upload-row">
 						<div class="photo-upload-photo photo"
-						 [style.backgroundImage]="'url('+ PhotoSRC +')'" (click) = "photo.click()"  
+						 [style.backgroundImage]="'url('+ PhotoSRC +')'" (click) = "NgxPhotoFileInput.click()"  
 						 [ngClass]="{
 						 'nophoto': !PhotoSRC || PhotoSRC===null
 						 }"
 						 >
 						  	<div class="photo-upload-input">
-						   <input #photo  type="file" 
+						   <input #NgxPhotoFileInput  type="file" 
 						    class="ng-hide" 
-						    (change)="fileChange(photo)" 
+						    (change)="fileChange(NgxPhotoFileInput)" 
 						   >
 	
 					     </div>	
 						  			
 						 </div>
 						 </div>
-						 <div class="photo-upload-row">
+						 
+						 
+						 
+					 <div class="photo-upload-row"  *ngIf="PhotoSRC === photoURL">
+						 <div class="photo-upload-select-btn">
+						<button type="button" class="btn-photo-input btn-photo-input-secondary photo-input-margin-top photo-input-center" (click)="NgxPhotoFileInput.click()" >
+							 Select Image 
+						</button>
+						 </div>
+						 </div>
+						 
+						 
+						 
+						 <div class="photo-upload-row" *ngIf="PhotoSRC != photoURL">
 						 <div class="photo-upload-btn">
-						<button type="button" class="btn-photo-input btn-photo-input-secondary photo-input-margin-top" (click)="photo.click()" >
-							Browse
+						<button type="button" class="btn-photo-input btn-photo-input-secondary photo-input-margin-top" (click)="NgxPhotoFileInput.click()" >
+							Change
 						</button>
 						 </div>
 						 <div class="photo-upload-btn">
-						<button type="button" class="btn-photo-input btn-photo-input-secondary photo-input-margin-top" (click)="fileremove(photo)" [disabled]="PhotoSRC === photoURL" >
-							Reset
+						<button type="button" class="btn-photo-input btn-photo-input-secondary photo-input-margin-top" (click)="fileremove(NgxPhotoFileInput)" [disabled]="PhotoSRC === photoURL" >
+							Remove
 						</button>
 						 </div>
 						 </div>
+						 
+						 
+						 
 						 </div>
 						
 						 		

@@ -24,6 +24,14 @@
 	float: left;
 	}
 
+
+.photo-upload .photo-upload-select-btn {
+	width: 200px;
+	padding: 0;
+	margin: 0;
+	}
+
+
 .photo-upload-input  {
     position: relative;
     overflow: hidden;
@@ -130,7 +138,11 @@
 }
 
 
-
+.photo-input-center {
+	display: block;
+    margin: auto auto;
+    clear:both;
+}
 
 
 
