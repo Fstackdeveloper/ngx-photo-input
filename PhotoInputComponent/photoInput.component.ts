@@ -69,6 +69,7 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
     else
     {
         this.NgxPhotoFileInput.nativeElement.value = null;
+        this.validateFn = PhotoValidator(this.PhotoSRC);
     }
 
     this.PhotoSRC = this.photoURL;
@@ -94,9 +95,11 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
       // Get Value Of File Input
       let value : string = photo.value;
 
+  if(value)
+      {
       //global variable refrence to AddComponent class for inner functions
       
-      this.validateFn = PhotoValidator(photo.value);
+      this.validateFn = PhotoValidator(value);
       
       // photo from file upload input
       this.photoValue =  photo.files[0];    
@@ -121,6 +124,8 @@ export class PhotoInputComponent implements ControlValueAccessor, OnChanges {
           this.photoValue = null;
           this.PhotoSRC = this.photoURL;
           }
+
+      }
   }
   
   
